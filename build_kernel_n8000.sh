@@ -1,17 +1,17 @@
 #!/bin/sh
 export KERNELDIR=`readlink -f .`
 export PARENT_DIR=`readlink -f ..`
-export RAMFS_SOURCE=`readlink -f $PARENT_DIR/initramfs_n8013_ics`
+export RAMFS_SOURCE=`readlink -f $PARENT_DIR/initramfs_n8000_ics`
 
 if [ "${1}" != "" ];then
   export KERNELDIR=`readlink -f ${1}`
 fi
 
-RAMFS_TMP="/tmp/ramfs-source-n8013"
+RAMFS_TMP="/tmp/ramfs-source-n8000"
 
 if [ ! -f $KERNELDIR/.config ];
 then
-  make kernel_n8013_defconfig
+  make kernel_n8000_defconfig
 fi
 
 . $KERNELDIR/.config
